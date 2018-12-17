@@ -23,6 +23,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-fileupload": "^1.0.0",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.4.0"
   }
 }
