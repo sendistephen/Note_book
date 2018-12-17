@@ -24,9 +24,9 @@ app.use(express.static('files'))
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
-// Load models
-require('./models/Note');
-
+// load routes
+const notes = require('./routes/notes');
+const users = require('./routes/users');
 
 // Index route
 app.get('/', (req, res) => {
@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 });
 
 // Use routes
+app.use('/notes', notes);
 app.use('/users', users);
 
 const port = 9000;

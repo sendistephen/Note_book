@@ -13,9 +13,15 @@ a.btn-signup {
     border-style: solid;
     color: #fff;
 }
-input[type='text'],input[type='password'],input[type='email']{
+input[type='text'],input[type='password'],input[type='email'] {
     font-size: 12px;
 }
 div>label{
  font-weight: 600;
+}
+
+/* Notes styles */
+#img-add{
+    width: 50px;
+    margin: 30px auto;
 }
