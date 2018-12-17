@@ -1,6 +1,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 /* Navbar styles */
@@ -12,4 +12,13 @@ a.btn-signup {
     border-radius: 30px;
     border-style: solid;
     color: #fff;
+}
+input[type='text']{
+    font-size: 12px;
+}
+input[type='password']{
+    font-size: 12px;
+}
+input[type='email']{
+    font-size: 12px;
 }
