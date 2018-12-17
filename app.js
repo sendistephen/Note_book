@@ -1,8 +1,16 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const app = express()
+
+// connect to the database
+mongoose.connect('mongodb://localhost:27017/notesIdea', {
+        useNewUrlParser: true
+    })
+    .then(() => console.log('MongoDb connected'))
+    .catch(err => console.log(err));
 
 // Middleware
 app.engine('handlebars', exphbs({
@@ -16,14 +24,9 @@ app.use(express.static('files'))
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
-// Load routes
-const users = require('./routes/users');
+// Load models
+require('./models/Note');
 
-// Global variables
-// app.use(function (req,res, next) {
-//     res.locals.user = req.user || null;
-//     next()
-// });
 
 // Index route
 app.get('/', (req, res) => {
