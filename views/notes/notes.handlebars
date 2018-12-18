@@ -1,6 +1,4 @@
-
 <div id="notes-wrapper">
-
     <div id="img-add">
         <a href="/notes/add">
             <img src="/images/add.png" alt="" data-toggle="tooltip" data-placement="bottom" title="Add your idea">
@@ -8,16 +6,19 @@
     </div>
 
     <div class="row">
+        {{#each notes}}
         <div class="col-md-3">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-body">
-                    <h4 class="card-title">course match</h4>
+                    <h4 class="card-title">{{title}}</h4>
                     <a href="#" class="btn btn-success btn-sm">View</a>
                     <a href="#" class="btn btn-warning btn-sm">Edit</a>
                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
                 </div>
             </div>
         </div>
-
+        {{else}}
+        <p class="lead">You currently have no records.</p>
+        {{/each}}
     </div>
 </div>

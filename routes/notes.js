@@ -6,17 +6,12 @@ const mongoose = require('mongoose');
 require('../models/Note');
 const Note = mongoose.model('notes');
 
-// Notes route
-router.get('/', (req, res) => {
-    res.render('notes/viewNotes');
-});
-
 // Retrieve all notes ideas from the database
-router.get('/notes', (req, res) => {
+router.get('/', (req, res) => {
     Note.find({})
-    .sort({date: 'desc'})
+    // .sort({date: 'desc'})
     .then(notes => {
-        res.render('notes/viewNotes', {
+        res.render('notes/notes', {
             notes:notes
         });
     });
@@ -58,7 +53,7 @@ router.post('/', (req, res) => {
         }
         new Note(newNote).save()
             .then(idea => {
-                res.redirect('notes/');
+                res.redirect('/notes');
             })
 
     }
