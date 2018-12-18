@@ -16,6 +16,7 @@ a.btn-signup {
 input[type='text'],input[type='password'],input[type='email'] {
     font-size: 12px;
 }
+
 div>label{
  font-weight: 600;
 }

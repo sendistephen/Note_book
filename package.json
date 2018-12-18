@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SendiSteve/notes_idea#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "express-fileupload": "^1.0.0",
     "express-handlebars": "^3.0.0",
