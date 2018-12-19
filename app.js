@@ -1,6 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -23,6 +24,7 @@ app.set('view engine', 'handlebars');
 // body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(methodOverride('_method'));
 
 // load static files
 app.use(express.static('public'))

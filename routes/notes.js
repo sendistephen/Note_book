@@ -22,6 +22,36 @@ router.get('/add', (req, res) => {
     res.render('notes/add');
 });
 
+// Edit notes route
+router.get('/edit/:id', (req, res) => {
+    Note.findOne({
+        _id: req.params.id
+    })
+    .then(note => {
+        res.render('notes/edit', {note:note});
+    });
+    
+});
+
+// process edit form
+router.put('/:id', (req, res) => {
+    // get the data to update
+    Note.findOne({
+        _id: req.params.id
+    })
+    .then(note => {
+        // set new values
+        note.title = req.body.title;
+        note.notes = req.body.notes;
+        
+        note.save()
+
+        .then(note => {
+            res.redirect('/notes');
+        });
+    });
+});
+
 // process the notes form
 router.post('/', (req, res) => {
     // capture form errors
@@ -32,6 +62,7 @@ router.post('/', (req, res) => {
             text: 'Please add a title for the idea'
         })
     }
+
     // check if user inputs notes
     if (!req.body.notes) {
         errors.push({
