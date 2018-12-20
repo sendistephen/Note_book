@@ -1,6 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -25,6 +27,24 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(methodOverride('_method'));
+
+// session middleware
+app.use(session({
+    secret: 'this is a secret key',
+    resave: true,
+    saveUninitialized: true,
+  }));
+
+// flash middleware
+app.use(flash());
+
+// set global variables
+app.use((req, res, next)=> {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next()
+});
 
 // load static files
 app.use(express.static('public'))

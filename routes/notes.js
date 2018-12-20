@@ -9,7 +9,9 @@ const Note = mongoose.model('notes');
 // Retrieve all notes ideas from the database
 router.get('/', (req, res) => {
     Note.find({})
-        // .sort({date: 'desc'})
+        .sort({
+            date: 'desc'
+        })
         .then(notes => {
             res.render('notes/notes', {
                 notes: notes
@@ -49,6 +51,7 @@ router.put('/:id', (req, res) => {
             note.save()
 
                 .then(note => {
+                    req.flash('success_msg', 'Record updated successfully!!!');
                     res.redirect('/notes');
                 });
         });
@@ -86,6 +89,7 @@ router.post('/', (req, res) => {
         }
         new Note(newNote).save()
             .then(idea => {
+                req.flash('success_msg', 'Record added successfully!!!');
                 res.redirect('/notes');
             })
 
@@ -99,6 +103,7 @@ router.delete('/:id', (req, res) => {
             _id: req.params.id
         })
         .then(() => {
+            req.flash('success_msg', 'Record deleted successfully!!!');
             res.redirect('/notes');
         });
 });
