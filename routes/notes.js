@@ -9,12 +9,12 @@ const Note = mongoose.model('notes');
 // Retrieve all notes ideas from the database
 router.get('/', (req, res) => {
     Note.find({})
-    // .sort({date: 'desc'})
-    .then(notes => {
-        res.render('notes/notes', {
-            notes:notes
+        // .sort({date: 'desc'})
+        .then(notes => {
+            res.render('notes/notes', {
+                notes: notes
+            });
         });
-    });
 });
 
 // Add notes route
@@ -25,31 +25,33 @@ router.get('/add', (req, res) => {
 // Edit notes route
 router.get('/edit/:id', (req, res) => {
     Note.findOne({
-        _id: req.params.id
-    })
-    .then(note => {
-        res.render('notes/edit', {note:note});
-    });
-    
+            _id: req.params.id
+        })
+        .then(note => {
+            res.render('notes/edit', {
+                note: note
+            });
+        });
+
 });
 
 // process edit form
 router.put('/:id', (req, res) => {
     // get the data to update
     Note.findOne({
-        _id: req.params.id
-    })
-    .then(note => {
-        // set new values
-        note.title = req.body.title;
-        note.notes = req.body.notes;
-        
-        note.save()
-
+            _id: req.params.id
+        })
         .then(note => {
-            res.redirect('/notes');
+            // set new values
+            note.title = req.body.title;
+            note.notes = req.body.notes;
+
+            note.save()
+
+                .then(note => {
+                    res.redirect('/notes');
+                });
         });
-    });
 });
 
 // process the notes form
@@ -89,6 +91,16 @@ router.post('/', (req, res) => {
 
     }
 
+});
+
+// Delete record
+router.delete('/:id', (req, res) => {
+    Note.remove({
+            _id: req.params.id
+        })
+        .then(() => {
+            res.redirect('/notes');
+        });
 });
 
 module.exports = router;
