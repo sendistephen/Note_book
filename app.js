@@ -25,7 +25,9 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 // body-parser middleware
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json())
 app.use(methodOverride('_method'));
 
@@ -34,13 +36,13 @@ app.use(session({
     secret: 'this is a secret key',
     resave: true,
     saveUninitialized: true,
-  }));
+}));
 
 // flash middleware
 app.use(flash());
 
 // set global variables
-app.use((req, res, next)=> {
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
@@ -56,6 +58,9 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 // load routes
 const notes = require('./routes/notes');
 const users = require('./routes/users');
+
+// passport config
+require('./config/passport')(passport);
 
 // Index route
 app.get('/', (req, res) => {
