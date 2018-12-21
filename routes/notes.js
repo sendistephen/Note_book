@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const {ensureAuthenticated} = require('../helpers/auth');
 
 // load note model
 require('../models/Note');
 const Note = mongoose.model('notes');
 
 // Retrieve all notes ideas from the database
-router.get('/', (req, res) => {
+router.get('/', ensureAuthenticated, (req, res) => {
     Note.find({})
         .sort({
             date: 'desc'
@@ -20,12 +21,12 @@ router.get('/', (req, res) => {
 });
 
 // Add notes route
-router.get('/add', (req, res) => {
+router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('notes/add');
 });
 
 // Edit notes route
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', ensureAuthenticated,  (req, res) => {
     Note.findOne({
             _id: req.params.id
         })
@@ -38,7 +39,7 @@ router.get('/edit/:id', (req, res) => {
 });
 
 // process edit form
-router.put('/:id', (req, res) => {
+router.put('/:id', ensureAuthenticated, (req, res) => {
     // get the data to update
     Note.findOne({
             _id: req.params.id
@@ -58,7 +59,7 @@ router.put('/:id', (req, res) => {
 });
 
 // process the notes form
-router.post('/', (req, res) => {
+router.post('/',ensureAuthenticated, (req, res) => {
     // capture form errors
     let errors = [];
     // check if user inputs title
@@ -98,7 +99,7 @@ router.post('/', (req, res) => {
 });
 
 // Delete record
-router.delete('/:id', (req, res) => {
+router.delete('/:id', ensureAuthenticated, (req, res) => {
     Note.remove({
             _id: req.params.id
         })
