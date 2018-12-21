@@ -8,3 +8,8 @@ This is a node js application that enables a user to to quickly note down his id
 4. User can update notes
 5. User can delete notes
 6. User can view notes
+
+## Technologies used
+1. Node Js
+2. MongoDB
+

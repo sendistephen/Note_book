@@ -4,6 +4,7 @@
   "description": "Application allows a user to write down ideas that cross his/her mind",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
