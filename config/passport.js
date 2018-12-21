@@ -24,6 +24,8 @@ module.exports = function (passport) {
                 }
                 // check if password matches
                 bcrypt.compare(password, user.password, (err, isMatch) => {
+                    if(err) throw err;
+                    
                     if (isMatch) {
                         return done(null, user);
                     } else {
@@ -33,8 +35,19 @@ module.exports = function (passport) {
 
                     }
                 });
+
             })
         }
 
     ));
+
+    passport.serializeUser(function (user, done) {
+        done(null, user.id);
+    });
+
+    passport.deserializeUser(function (id, done) {
+        User.findById(id, function (err, user) {
+            done(err, user);
+        });
+    });
 }
