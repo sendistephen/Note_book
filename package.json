@@ -4,7 +4,7 @@
   "description": "Application allows a user to write down ideas that cross his/her mind",
   "main": "app.js",
   "engines": {
-    "node": "10.14.1"
+    "node": "10.x"
   },
   "scripts": {
     "start": "node app.js",
