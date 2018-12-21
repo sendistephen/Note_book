@@ -13,16 +13,32 @@ a.btn-signup {
     border-style: solid;
     color: #fff;
 }
-input[type='text'],input[type='password'],input[type='email'] {
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
     font-size: 12px;
 }
 
-div>label{
- font-weight: 600;
+div>label {
+    font-weight: 600;
 }
 
 /* Notes styles */
-#img-add{
+#img-add {
     width: 50px;
     margin: 30px auto;
+}
+
+#btn-delete,
+#btn-edit,
+#btn-view {
+    float: left;
+    margin-right: 10px;
+}
+.btn-sm{
+    height: 20px;
+    font-size:10px;
+    text-align: center;
+    font-weight: bold;
 }

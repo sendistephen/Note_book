@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const {ensureAuthenticated} = require('../helpers/auth');
+const {
+    ensureAuthenticated
+} = require('../helpers/auth');
 
 // load note model
 require('../models/Note');
@@ -9,7 +11,9 @@ const Note = mongoose.model('notes');
 
 // Retrieve all notes ideas from the database
 router.get('/', ensureAuthenticated, (req, res) => {
-    Note.find({})
+    Note.find({
+            user: req.user.id
+        })
         .sort({
             date: 'desc'
         })
@@ -26,16 +30,20 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 });
 
 // Edit notes route
-router.get('/edit/:id', ensureAuthenticated,  (req, res) => {
+router.get('/edit/:id', ensureAuthenticated, (req, res) => {
     Note.findOne({
             _id: req.params.id
         })
         .then(note => {
-            res.render('notes/edit', {
-                note: note
-            });
+            if (note.user != req.user.id) {
+                req.flash('error_msg', 'Not Authorized');
+                res.redirect('/notes');
+            } else {
+                res.render('notes/edit', {
+                    note: note
+                });
+            }
         });
-
 });
 
 // process edit form
@@ -59,7 +67,7 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
 });
 
 // process the notes form
-router.post('/',ensureAuthenticated, (req, res) => {
+router.post('/', ensureAuthenticated, (req, res) => {
     // capture form errors
     let errors = [];
     // check if user inputs title
@@ -80,13 +88,15 @@ router.post('/',ensureAuthenticated, (req, res) => {
         res.render('notes/add', {
             errors: errors,
             title: req.body.title,
-            notes: req.body.notes
+            notes: req.body.notes,
         });
     } else {
         // save data to the database
         const newNote = {
             title: req.body.title,
-            notes: req.body.notes
+            notes: req.body.notes,
+            user: req.user.id
+
         }
         new Note(newNote).save()
             .then(idea => {
