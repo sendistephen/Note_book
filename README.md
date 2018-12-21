@@ -1,6 +1,8 @@
 # Notes Application
 This is a node js application that enables a user to to quickly note down his ideas
 
+Checkout the [demo](https://notes-pro.herokuapp.com/) on heroku
+
 ## Key Features
 1. User can create an account
 2. User can login 
