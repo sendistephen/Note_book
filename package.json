@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Application allows a user to write down ideas that cross his/her mind",
   "main": "app.js",
+  "engines": {
+    "node": "10.14.1"
+  },
   "scripts": {
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
