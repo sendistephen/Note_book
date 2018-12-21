@@ -1,0 +1,31 @@
+<div id="notes-wrapper">
+    <div id="img-add">
+        <a href="/notes/add">
+            <img src="/images/add.png" alt="" data-toggle="tooltip" data-placement="bottom" title="Add your idea">
+        </a>
+    </div>
+
+    <div class="row">
+        {{#each notes}}
+        <div class="col-md-3">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">{{title}}</h4>
+                    <a href="#" id="btn-view" class="btn btn-success btn-sm">View</a>
+                    <a href="/notes/edit/{{id}}" id="btn-edit" class="btn btn-warning btn-sm">Edit</a>
+                    {{!-- for delete --}}
+                    <form method="POST" action="/notes/{{id}}?_method=DELETE">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input id="btn-delete" type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    Creadted on: <span>{{date}}</span>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <p class="lead">You currently have no records.</p>
+        {{/each}}
+    </div>
+</div>

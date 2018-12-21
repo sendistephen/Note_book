@@ -1,0 +1,41 @@
+{
+  "name": "notes_idea",
+  "version": "1.0.0",
+  "description": "Application allows a user to write down ideas that cross his/her mind",
+  "main": "app.js",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SendiSteve/notes_idea.git"
+  },
+  "keywords": [
+    "ideas",
+    "notes"
+  ],
+  "author": "Stephen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SendiSteve/notes_idea/issues"
+  },
+  "homepage": "https://github.com/SendiSteve/notes_idea#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.0.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
