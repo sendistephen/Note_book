@@ -1,18 +1,19 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Navbar styles */
-a.btn-signup {
-    width: 120px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgb(255, 255, 255);
-    border-radius: 30px;
-    border-style: solid;
-    color: #fff;
+.navbar {
+    background: #1C7CE0 !important;
 }
+
+.nav-link {
+    border: 1px solid transparent;
+}
+
 
 input[type='text'],
 input[type='password'],
@@ -24,30 +25,6 @@ div>label {
     font-weight: 600;
 }
 
-/* Notes styles */
-#img-add {
-    width: 50px;
-    margin: 30px auto;
-}
-
-#btn-delete,
-#btn-edit,
-#btn-view {
-    float: left;
-    margin-right: 10px;
-}
-
-.btn-sm {
-    height: 20px;
-    font-size: 10px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.card {
-    height: 200px;
-}
-
 i {
     color: #9f8686;
 }
@@ -57,27 +34,102 @@ i {
     background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
     padding: 40px;
     color: #fff;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 }
 
-.navbar {
-    background: #1C7CE0 !important;
-}
-
+/*----------------------------
+        Buttons
+------------------------------*/
 .btn-auth {
     width: 120px;
-    border: 1px solid #ffc800;
     border-radius: 5px;
     text-align: center;
-    margin-left: 10px;
     font-weight: 500;
-    color: #ffc800;
 }
-.nav-link{
-    border: 1px solid transparent;
+
+a.btn-signup {
+    width: 120px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    border-style: solid;
+    color: #fff;
 }
+
+.button-note {
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
 .btn-auth:hover,
 .btn-auth:focus {
-    color: #2a2730;
-    background-color: #ffc800;
+    /* color: #2a2730 !important; */
+    background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+    font-weight: bolder;
+    color: ghostwhite !important;
+    border: 1px solid #fff;
+}
+
+#btn-delete,
+#btn-edit,
+#btn-view {
+    float: left;
+    margin-right: 10px;
+}
+
+
+/*----------------------------
+        Footer styles
+------------------------------*/
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+footer ul li a:hover {
+    color: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+
+}
+
+footer span {
+    color: #0072ff;
+    cursor: pointer;
+}
+
+footer p {
+    font-size: 12px;
+}
+
+/*----------------------------
+        Notes section
+------------------------------*/
+
+#notes-wrapper .row {
+    background: #f6f6f6;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#notes-wrapper .card:hover,
+#notes-wrapper .card:focus {
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(233, 233, 233, 0.23);
+    transition-duration: .5s;
+    transition-delay: 0.05s;
+}
+
+#notes-wrapper .card-title {
+    font-size: 14px;
+}
+
+#wrapper .card {
+    height: 200px;
 }
