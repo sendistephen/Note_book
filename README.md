@@ -3,6 +3,9 @@ This is a node js application that enables a user to to quickly note down his id
 
 Checkout the [demo](https://notes-pro.herokuapp.com/) on heroku
 
+## Look and Feel
+![alt text](public/images/screen.png)
+
 ## Key Features
 1. User can create an account
 2. User can login 
