@@ -36,9 +36,48 @@ div>label {
     float: left;
     margin-right: 10px;
 }
-.btn-sm{
+
+.btn-sm {
     height: 20px;
-    font-size:10px;
+    font-size: 10px;
     text-align: center;
     font-weight: bold;
+}
+
+.card {
+    height: 200px;
+}
+
+i {
+    color: #9f8686;
+}
+
+#text-info {
+    /* background: #cca1e0; */
+    background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);
+    padding: 40px;
+    color: #fff;
+    margin-bottom: 70px;
+}
+
+.navbar {
+    background: #1C7CE0 !important;
+}
+
+.btn-auth {
+    width: 120px;
+    border: 1px solid #ffc800;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+    font-weight: 500;
+    color: #ffc800;
+}
+.nav-link{
+    border: 1px solid transparent;
+}
+.btn-auth:hover,
+.btn-auth:focus {
+    color: #2a2730;
+    background-color: #ffc800;
 }
