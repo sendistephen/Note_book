@@ -9,7 +9,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h5 class="card-title">{{title}}</h4>
-                        <a href="#" id="btn-view" class="btn btn-outline-secondary button-note">View</a>
+                        <a href="/notes/note/{{id}}" id="btn-view" class="btn btn-outline-secondary button-note">View</a>
                         <a href="/notes/edit/{{id}}" id="btn-edit" class="btn btn-outline-warning button-note">Edit</a>
                         {{!-- for delete --}}
                         <form method="POST" action="/notes/{{id}}?_method=DELETE">
