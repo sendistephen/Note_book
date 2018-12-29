@@ -24,6 +24,17 @@ router.get('/', ensureAuthenticated, (req, res) => {
         });
 });
 
+router.get('/note/:id', ensureAuthenticated, (req, res) => {
+    Note.findOne({
+            _id: req.params.id
+        })
+        .then(note => {
+            res.render('notes/note', {
+                note: note
+            });
+        })
+});
+
 // Add notes route
 router.get('/add', ensureAuthenticated, (req, res) => {
     res.render('notes/add');

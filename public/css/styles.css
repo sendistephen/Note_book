@@ -126,8 +126,9 @@ footer p {
     transition-delay: 0.05s;
 }
 
-#notes-wrapper .card-title {
+#notes-wrapper .card-title, .card-header {
     font-size: 14px;
+    color: #0366d6;
 }
 
 #wrapper .card {
